@@ -1,5 +1,39 @@
 #!/usr/bin/env python
 # coding: utf-8
+# %% [markdown]
+# # comments from GSI:
+#
+# Q0: -1 equation not in Latex
+#
+# Q2:  -2 missing two staggered rows
+#
+# Q3: -10 missing part c
+#
+# Overall: -8 for no docstring
+#
+# -2 for all imports aren't collected together near the start
+
+# %% [markdown]
+# # Correction that I will make:
+#
+# I will make the correction about the comments of:
+#
+# Q2:  -2 missing two staggered rows
+#
+# Overall: -8 for no docstring
+#
+# -2 for all imports aren't collected together near the start
+#
+# ## Hi GSIs, for the comment of "Q3: -10 missing part c", I checked and found that I did have part c, but just forgot to label it, in this case, I add the label and didn't change the content and code of this part (Question 3c), could I get it regraded? Thank you !
+#
+
+# %%
+import math
+import numpy as np
+import scipy.stats as st
+import numpy as np
+
+# %%
 
 # # Problem 0
 
@@ -51,9 +85,22 @@
 
 # ### (a)
 
-# In[27]:
+# %%
 
+"""
+    The function using the recursive way to calculate Fn. 
 
+    Parameters
+    ----------
+    n : total number of the Fibonacci sequence.
+    a : the first number in the sequence .
+    b : the second number of the sequence.
+
+     Returns
+     -------
+     The value of Fn.
+
+    """
 def fib_rec(n, a = 0, b = 1):
     if (n == 0):
         return a
@@ -65,9 +112,22 @@ def fib_rec(n, a = 0, b = 1):
 
 # ### (b)
 
-# In[38]:
+# %%
 
+"""
+    The function using the for loop to calculate Fn. 
 
+    Parameters
+    ----------
+    n : total number of the Fibonacci sequence.
+    a : the first number in the sequence .
+    b : the second number of the sequence.
+
+     Returns
+     -------
+     The value of Fn.
+
+    """
 def fib_for(n, a = 0, b = 1):
     x = a
     y = b
@@ -78,8 +138,21 @@ def fib_for(n, a = 0, b = 1):
 
 # ### (c)
 
-# In[42]:
+# %%
+"""
+    The function using the while loop to calculate Fn. 
 
+    Parameters
+    ----------
+    n : total number of the Fibonacci sequence.
+    a : the first number in the sequence .
+    b : the second number of the sequence.
+
+     Returns
+     -------
+     The value of Fn.
+
+    """
 
 def fib_whl(n, a = 0, b = 1):
     x = a
@@ -92,10 +165,23 @@ def fib_whl(n, a = 0, b = 1):
 
 # ### (d)
 
-# In[49]:
+# %%
 
 
-import math
+"""
+    The function using the rounding method to calculate Fn. 
+
+    Parameters
+    ----------
+    n : total number of the Fibonacci sequence.
+    a : the first number in the sequence .
+    b : the second number of the sequence.
+
+     Returns
+     -------
+     The value of Fn.
+
+    """
 def fib_rnd(n):
     phi = (1+math.sqrt(5))/2
     return round(pow(phi,n)/(math.sqrt(5)))
@@ -103,10 +189,23 @@ def fib_rnd(n):
 
 # ### (e)
 
-# In[52]:
+# %%
 
+"""
+    The function using the truncation method to calculate Fn. 
 
-import math
+    Parameters
+    ----------
+    n : total number of the Fibonacci sequence.
+    a : the first number in the sequence .
+    b : the second number of the sequence.
+
+     Returns
+     -------
+     The value of Fn.
+
+    """
+
 def fib_flr(n):
     phi = (1+math.sqrt(5))/2
     return math.floor(pow(phi,n)/(math.sqrt(5))+1/2)
@@ -114,10 +213,12 @@ def fib_flr(n):
 
 # ### (f)
 
-# In[124]:
+# %% [markdown]
+# ## All the functions are from above, so no new docstring are needed 
+
+# %%
 
 
-import math
 from time import time
 def fib_rec(n, a = 0, b = 1):
     if (n == 0):
@@ -180,8 +281,20 @@ print (t5-t4)
 
 # ### (a)
 
-# In[94]:
+# %%
 
+"""
+    The function computes the secified row of Pascal's triangle. 
+
+    Parameters
+    ----------
+    n : specific row.
+    k: number of success from binomial coef.
+     Returns
+     -------
+     The row.
+
+    """
 
 def pascal_row(n,k):
     if (k == 0):
@@ -192,8 +305,19 @@ def pascal_row(n,k):
 
 # ### (b)
 
-# In[117]:
+# %%
+"""
+    The function prints the first n rows of Pascal's triangle. 
 
+    Parameters
+    ----------
+    n : specific row.
+    k: number of success from binomial coef.
+     Returns
+     -------
+     The first n rows.
+
+    """
 
 def pascal_row(n,k):
     if (k == 0):
@@ -210,16 +334,27 @@ def print_pascal(n):
             print(" ", end = " ")
         print()
             
-print_pascal(8)
+print_pascal(10)
 
 
 # # Problem 3
 
-# In[195]:
+# %%
 
+"""
+    The function gives the point and confidence interval estimation of the population mean. 
 
-import numpy as np
-import scipy.stats as st
+    Parameters
+    ----------
+    arr : array.
+    cl: confidence level.
+    se: standard error
+
+     Returns
+     -------
+     The string form of the point and confidence interval estimations.
+
+    """
 def func_a(arr, Cl, ci_format=None):
     x_bar = np.mean(arr)
     se = st.sem(arr)
@@ -232,12 +367,10 @@ def func_a(arr, Cl, ci_format=None):
     
 
 
-# In[264]:
+# %%
 
 
-import math
-import numpy as np
-import scipy.stats as st
+
 
 """
     The function gives the point and confidence interval estimation of the population mean. 
@@ -316,6 +449,14 @@ def func_b(arr,Cl, method,ci_format = None):
             return {"est": p_tilda, "lwr": theta_L, "upr": theta_H, "level": Cl}
         return str(p_tilda)+"["+str(Cl)+"%Cl:("+str(theta_L)+","+str(theta_H)+")"+"]"
 
+
+
+
+# %% [markdown]
+# ## 3C.
+
+# %%
+
 #arr = np.array([1,2,3,4,5])
 #print(func_a(arr, 3, 5, 95))
 zeros = np.zeros(48)
@@ -324,11 +465,6 @@ arr = np.concatenate((zeros, ones), axis=None)
 print(func_b(arr, 99, "iv"))
 print(func_a(arr, 99))
     
-
-
-# In[263]:
-
-
 method|90|95|99
 :-:|:-:|:-:|:-:
 a|(0.3797,0.55365)|(0.3630,0.5703)|(0.3305,0.6029)
@@ -338,7 +474,7 @@ biii|(0.3818,0.5531)|(0.3660,0.5694)|(0.3357,0.6010)
 biv|(0.1322,0.3052)|(0.1160,0.3221)|(0.0844,0.3554)
 
 
-# In[ ]:
+# %%
 
 
 
